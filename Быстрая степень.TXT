@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+float power(float a, float b){
+    if(b == 0){
+        return 1;
+    }
+    else{
+        int n = (int)b;
+        if(n % 2 == 0){
+            return power(a * a, b / 2);
+        }
+        else{
+            return a * power(a, b - 1);
+        }
+    }
+}
+int main()
+{
+    float a, b;
+    cin>>a>>b;
+    cout<<power(a, b);
+
+    return 0;
+}

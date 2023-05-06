@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+int factorial(int n){
+    if(n == 0){
+        return 1;
+    }
+    if(n == 1){
+        return 1;
+    }
+    else{
+        return n * factorial(n - 1);
+    }
+}
+int factorial_1(int n){
+    if(n == 0){
+        return 1;
+    }
+    else{
+        int f = 1;
+        for(int i = 1; i <= n; i++){
+            f *= i;
+        }
+        return f;
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    clock_t start = clock(); // рекурсия
+    cout<<factorial(n);
+    clock_t end = clock();
+    double seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("   The time: %f seconds\n", seconds);
+    start = clock();         // без рекурсии
+    cout<<factorial_1(n);
+    end = clock();
+    seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("   The time: %f seconds\n", seconds);
+    return 0;
+}
